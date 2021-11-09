@@ -8,5 +8,6 @@ source env/bin/activate
 python ini_db.py
 
 # start server
-export FLASK_APP=app\n
+export FLASK_APP=app
+
 flask run
