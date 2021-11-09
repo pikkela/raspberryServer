@@ -1,9 +1,8 @@
 # raspberryServer
 
-# starting Server
-
-source env/bin/activate
 # to start virtual enviroment
+source env/bin/activate
+
 
 # for first time you should execute command below to create fisrt database table
 python ini_db.py
