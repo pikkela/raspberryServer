@@ -22,11 +22,12 @@ def index():
 def get_data():
 	#open serial port
 	ser = serial.Serial('/dev/ttyUSB0',9600)
-	#check ls /dev/ttyUSBx for port
+	#check ls /dev/tty* for port
 	serialdata = ser.readline()
-	print(serialdata)
 	title = 'Temperature'
-	conn = get_db_connection()
+	conn = get_db_connection()      
+        #BME280 temperature 20 C
+        #INSERT INTO logs (id, title, content) 
         conn.execute('INSERT INTO logs (title, content) VALUES (?, ?)',
                      (title, serialdata.decode('utf-8')))
         conn.commit()
