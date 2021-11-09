@@ -1,5 +1,11 @@
 # raspberryServer
 
+#Enable i2c to raspberry pi to get data from stm
+
+ sudo raspi-config
+ 
+ select interface options and enable i2c
+
 # to start virtual enviroment
 source env/bin/activate
 
