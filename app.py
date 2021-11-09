@@ -25,10 +25,11 @@ def get_data():
 	#check ls /dev/ttyUSBx for port
 	serialdata = ser.readline()
 	print(serialdata)
+	deviceId = "Arduino"
 	title = 'Temperature'
 	conn = get_db_connection()
-        conn.execute('INSERT INTO logs (title, content) VALUES (?, ?)',
-                     (title, serialdata.decode('utf-8')))
+        conn.execute('INSERT INTO logs (devid, title, content) VALUES (?, ?, ?)',
+                     (deviceId, title, serialdata.decode('utf-8')))
         conn.commit()
         conn.close()
 	return redirect(url_for('index'))

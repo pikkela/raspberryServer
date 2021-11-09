@@ -4,7 +4,8 @@
 	<h1>{%block title %} Lets see that data {% endblock %}</h1>
 	{% for log in logs %}
 	<a href="#">
-		<h2>{{ log['title'] }}</h2>
+		<h2>{{ log['devid'] }}<h2>
+		<h3>{{ log['title'] }}</h3>
 		<h3>{{ log['content'] }}</h3>
 	</a>
 	<span class="badge badge-primary">{{ log['created'] }}</span>

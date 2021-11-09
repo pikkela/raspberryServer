@@ -7,12 +7,12 @@ with open('schema.sql') as f:
 
 cur = connection.cursor()
 
-cur.execute("INSERT INTO logs (title, content) VALUES (?, ?)",
-            ('Temperature', '23.4 celsius')
+cur.execute("INSERT INTO logs (devid, title, content) VALUES (?, ?, ?)",
+            ('Arduino', 'Temperature', '23.4 celsius')
             )
 
-cur.execute("INSERT INTO logs (title, content) VALUES (?, ?)",
-            ('Humidity', '67%')
+cur.execute("INSERT INTO logs (devid, title, content) VALUES (?, ?, ?)",
+            ('Arduino', 'Humidity', '67%')
             )
 
 connection.commit()
