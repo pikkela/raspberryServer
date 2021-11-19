@@ -18,18 +18,10 @@ def index():
         conn.close()
         return render_template('index.html', logs=logs)
 
-@app.route('/get_data/')
-def get_data():
-	#open serial port
-	ser = serial.Serial('/dev/ttyUSB0',9600)
-	#check ls /dev/ttyUSBx for port
-	serialdata = ser.readline()
-	print(serialdata)
-	deviceId = "Arduino"
-	title = 'Temperature'
+@app.route('/delete/')
+def delete():
 	conn = get_db_connection()
-        conn.execute('INSERT INTO logs (devid, title, content) VALUES (?, ?, ?)',
-                     (deviceId, title, serialdata.decode('utf-8')))
-        conn.commit()
-        conn.close()
+	conn.execute('DELETE FROM logs')
+	conn.commit()
+	conn.close()
 	return redirect(url_for('index'))
