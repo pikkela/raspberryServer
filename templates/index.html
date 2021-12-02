@@ -2,13 +2,15 @@
 
 {%block content %}
 	<h1>{%block title %} Lets see that data {% endblock %}</h1>
-	{% for log in logs %}
+	{% for bme in bme_data %}
 	<a href="#">
-		<h2>{{ log['devid'] }}</h2>
-		<h3>{{ log['title'] }}</h3>
-		<h3>{{ log['content'] }}</h3>
+		<h2></h2>
+		<h3>BME280</h3>
+		<h3>Temperature : {{ bme['temp'] }}</h3>
+		<h3>Humidity : {{ bme['humid'] }}</h3>
+		<h3> {{ bme['press'] }}</h3>
 	</a>
-	<span class="badge badge-primary">{{ log['created'] }}</span>
+	<span class="badge badge-primary">{{ bme['created'] }}</span>
 	<hr>
 	{% endfor %}
 {% endblock %}

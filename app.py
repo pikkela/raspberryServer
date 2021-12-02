@@ -14,9 +14,9 @@ app = Flask(__name__)
 @app.route('/')
 def index():
         conn = get_db_connection()
-        logs = conn.execute('SELECT * FROM logs').fetchall()
+        bme_data = conn.execute('SELECT * FROM bme_data').fetchall()
         conn.close()
-        return render_template('index.html', logs=logs)
+        return render_template('index.html', bme_data=bme_data)
 
 @app.route('/delete/')
 def delete():
