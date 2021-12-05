@@ -14,14 +14,14 @@ app = Flask(__name__)
 @app.route('/')
 def index():
         conn = get_db_connection()
-        bme_data = conn.execute('SELECT * FROM bme_data').fetchall()
+        bme_data = conn.execute('SELECT * FROM bme_data ORDER BY id DESC LIMIT 10').fetchall()
         conn.close()
         return render_template('index.html', bme_data=bme_data)
 
 @app.route('/delete/')
 def delete():
 	conn = get_db_connection()
-	conn.execute('DELETE FROM logs')
+	conn.execute('DELETE FROM bme_data')
 	conn.commit()
 	conn.close()
 	return redirect(url_for('index'))

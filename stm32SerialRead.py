@@ -19,7 +19,6 @@ while True :
 	#serialData = ser.readline()
 	#print(serialdata)
 	temp, press, humid = struct.unpack('ddd',serialdata)
-	print "\n\nx = ",x,"\ny = ",y, "\nz = ",z
-	conn.execute('INSERT INTO logs(temp, press, humid) VALUES (?, ?, ?)', temp, press, humid)
+	conn.execute('INSERT INTO bme_data(temp, press, humid) VALUES (?, ?, ?)',(temp, press, humid))
 	conn.commit()
 conn.close()
